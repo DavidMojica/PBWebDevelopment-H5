@@ -1,5 +1,9 @@
+import { Stylizer } from "./style.js";
+
 class Content{
-    constructor(){}
+    constructor(){
+        this.Stylize = new Stylizer;
+    }
 
     fill_header = (header) =>{
         //--Logo--//
@@ -36,7 +40,8 @@ class Content{
         const loginBtn = document.createElement('button');
         loginBtn.textContent = "Iniciar sesión";
         header.append(...[logo, navItems, loginBtn]);
-        
+        header = this.Stylize.stylize_header(header);
+
         return header;
     }
 
