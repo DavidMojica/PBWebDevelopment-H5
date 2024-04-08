@@ -57,6 +57,21 @@ class Content{
         const card_3= document.createElement('article');
         const card_4 = document.createElement('article');
 
+        const btn_comprar = document.createElement('button');
+        const btn_devolver = document.createElement('button');
+        const btn_info = document.createElement('button');
+        const btn_terminos = document.createElement('button');
+
+        btn_comprar.textContent = "Comprar";
+        btn_devolver.textContent = "Devolver";
+        btn_info.textContent = "Información";
+        btn_terminos.textContent = "Aceptar términos";
+        
+        card_1.appendChild(btn_comprar);
+        card_2.appendChild(btn_devolver);
+        card_3.appendChild(btn_info);
+        card_4.appendChild(btn_terminos);
+
         cards_section.append(...[card_1, card_2, card_3, card_4]);
 
 

@@ -1,18 +1,25 @@
+import { Content } from "./content.js";
+
 class Sections {
-    constructor() {}
+    constructor() {
+        this.filler = new Content();
+    }
 
     get_header = () => {
-        const header = document.createElement('header');
+        let header = document.createElement('header');
+        header = this.filler.fill_header(header);
         return header;
     }
 
     get_main = () => {
-        const main = document.createElement('main');
+        let main = document.createElement('main');
+        main = this.filler.fill_main(main);
         return main;
     }
 
     get_footer = () => {
-        const footer = document.createElement('footer');
+        let footer = document.createElement('footer');
+        footer = this.filler.fill_footer(footer);
         return footer;
     }
 }

@@ -2,8 +2,8 @@ class Cards{
     constructor(){}
 
     card_rainbow = card =>{
-        card.style.width = "200px";
-        card.style.height = "250px";
+        card.style.width = "270px";
+        card.style.height = "350px";
         card.style.borderRadius = "1rem";
         card.style.backgroundColor = "#4158D0";
         card.style.backgroundImage = "linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)";

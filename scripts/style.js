@@ -1,10 +1,17 @@
 import { Buttons } from "./components/buttons.js";
 import { Cards } from "./components/cards.js";
+import { createToastNotify } from "./components/ToastNotify.js";
 
 class Stylizer {
     constructor(){
         this.ButtonStyler = new Buttons;
         this.CardStyler = new Cards;
+
+        this.ButtonCardColorMap = ['#006241','#DC3545','#007BFF','#FFC107'];
+        this.NotiHeadMap = ["Exito", "Error", "Info", "Advertencia"];
+        this.NotiMsgMap = ["Su compra se ha realizado correctamente.", "Error en el sistema, intente más tarde.", "Estamos abiertos de lunes a sábado.", `Mensaje de advertencia ¿Acepta las condiciones? presione X para cerrar el ToastNotify/Denegar, pusle el boton aceptar caso afirmativo<section class="row"> <article class="col d-flex justify-content-end"><button class="btn btn-light border btn-sm">Acepto</button></article></section>`];
+
+        
     }
 
     stylize_header = header =>{
@@ -39,6 +46,8 @@ class Stylizer {
     }
 
     stylize_main = main =>{
+        main.style.textAlign = 'center';
+        main.style.margin = "10vh 0 10vh 0"
         
         //Title
         const title = main.children[0];
@@ -46,14 +55,27 @@ class Stylizer {
 
         //card section
         const cards_section = main.children[1];
+        cards_section.style.display = 'flex';
+        cards_section.style.justifyContent = 'space-evenly';
 
         for (let i = 0; i < cards_section.children.length; i++) {
             let card = cards_section.children[i];
+            card.style.display = "grid";
+            card.style.placeItems = "center";
             card = this.CardStyler.card_rainbow(card);
+
+            //Botón de la carta
+            let card_btn = card.children[0];
+            card_btn = this.ButtonStyler.btn_boot(card_btn, this.ButtonCardColorMap[i], '#fff');
+
+            card_btn.addEventListener('click', e=>{
+                createToastNotify(i, this.NotiHeadMap[i] , this.NotiMsgMap[i]);
+            });
+
         }
 
 
-        main.style.textAlign = 'center';
+        
         
         return main;
     }
