@@ -9,13 +9,14 @@ let body = document.body;
 
 
 let headerElement = S.get_header();
-const mainElement = S.get_main();
-const footerElement = S.get_footer();
+let mainElement = S.get_main();
+let footerElement = S.get_footer();
 
 headerElement = C.fill_header(headerElement);
+mainElement = C.fill_main(mainElement);
+footerElement = C.fill_footer(footerElement);
 
-// Agregando los elementos al DOM
-
+body.style.fontFamily = 'Reddit Mono';
 body.appendChild(headerElement);
 body.appendChild(mainElement);
 body.appendChild(footerElement);
