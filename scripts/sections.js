@@ -1,3 +1,5 @@
+//Sections - Aquí se crean y se exportan las seccione.Tambien se rellenan con los elementos HTML
+//que provienen de la clase Content mediante la instancia filler.
 import { Content } from "./content.js";
 
 class Sections {
@@ -23,5 +25,6 @@ class Sections {
         return footer;
     }
 }
+
 
 export { Sections };

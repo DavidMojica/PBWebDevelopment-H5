@@ -1,3 +1,9 @@
+//Aquí se aplica el CSS y se importan varios componentes que hacen lucir
+//de forma agradable cada elemento.
+
+//Buttons, cards y createToastNotify son componentes gráficos que se instancian
+//cuando se necesitan utilizar.
+
 import { Buttons } from "./components/buttons.js";
 import { Cards } from "./components/cards.js";
 import { createToastNotify } from "./components/ToastNotify.js";
@@ -10,7 +16,6 @@ class Stylizer {
         this.ButtonCardColorMap = ['#006241','#DC3545','#007BFF','#FFC107'];
         this.NotiHeadMap = ["Exito", "Error", "Info", "Advertencia"];
         this.NotiMsgMap = ["Su compra se ha realizado correctamente.", "Error en el sistema, intente más tarde.", "Estamos abiertos de lunes a sábado.", `Mensaje de advertencia ¿Acepta las condiciones? presione X para cerrar el ToastNotify/Denegar, pusle el boton aceptar caso afirmativo<section class="row"> <article class="col d-flex justify-content-end"><button class="btn btn-light border btn-sm">Acepto</button></article></section>`];
-
         
     }
 
@@ -65,7 +70,11 @@ class Stylizer {
             card = this.CardStyler.card_rainbow(card);
 
             //Botón de la carta
-            let card_btn = card.children[0];
+            let card_msg = card.children[0];
+            card_msg.style.width = "75%";
+            card_msg.style.fontSize = "1.2rem";
+
+            let card_btn = card.children[1];
             card_btn = this.ButtonStyler.btn_boot(card_btn, this.ButtonCardColorMap[i], '#fff');
 
             card_btn.addEventListener('click', e=>{

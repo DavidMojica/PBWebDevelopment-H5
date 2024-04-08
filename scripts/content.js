@@ -1,9 +1,12 @@
+//Content - Aquí se rellena cada sección con los elementos HTML crudos y sin estilos.
+//Posteriormente, se estilizan por medio del objeto Stylizer y se retornan a Sections.
 import { Stylizer } from "./style.js";
 
 class Content{
     constructor(){
         this.Stylize = new Stylizer;
-        this.logo_route = '../resources/logo.webp'
+        this.logo_route = '../resources/logo.webp';
+        this.default_card_text = "Por favor pulsar cada botón. ⬇️⬇️⬇️⬇️⬇️";
     }
 
     fill_header = header =>{
@@ -57,6 +60,15 @@ class Content{
         const card_3= document.createElement('article');
         const card_4 = document.createElement('article');
 
+        const msg_card1 = document.createElement('h4');
+        msg_card1.textContent = this.default_card_text;
+        const msg_card2 = document.createElement('h4');
+        msg_card2.textContent = this.default_card_text;
+        const msg_card3 = document.createElement('h4');
+        msg_card3.textContent = this.default_card_text;
+        const msg_card4 = document.createElement('h4');
+        msg_card4.textContent = this.default_card_text;
+
         const btn_comprar = document.createElement('button');
         const btn_devolver = document.createElement('button');
         const btn_info = document.createElement('button');
@@ -67,15 +79,13 @@ class Content{
         btn_info.textContent = "Información";
         btn_terminos.textContent = "Aceptar términos";
         
-        card_1.appendChild(btn_comprar);
-        card_2.appendChild(btn_devolver);
-        card_3.appendChild(btn_info);
-        card_4.appendChild(btn_terminos);
+        card_1.append(...[msg_card1, btn_comprar]);
+        card_2.append(...[msg_card2, btn_devolver]);
+        card_3.append(...[msg_card3, btn_info]);
+        card_4.append(...[msg_card4, btn_terminos]);
 
         cards_section.append(...[card_1, card_2, card_3, card_4]);
 
-
-        
         main.append(...[main_title, cards_section]);
         main = this.Stylize.stylize_main(main);
         return main;
